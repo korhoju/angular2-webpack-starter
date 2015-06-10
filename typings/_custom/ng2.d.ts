@@ -1,10 +1,29 @@
-declare var require: any;
-declare var __filename: string;
-declare var __dirname: string;
-declare var global: any;
 declare var zone: any;
 declare var Zone: any;
 
+
+declare module "angular2/change_detection" {
+  class Pipe {}
+  class NullPipeFactory {}
+  class PipeRegistry {
+    constructor(pipes: any)
+  }
+  class JitChangeDetection {}
+  class ChangeDetection {}
+  class DynamicChangeDetection {}
+  var defaultPipes: any;
+}
+
+
+declare module "angular2/src/core/zone/ng_zone" {
+  class NgZone {
+    runOutsideAngular(func: Function): any
+  }
+}
+
+declare module 'angular2/src/services/url_resolver' {
+  class UrlResolver {}
+}
 
 declare module "angular2/src/facade/async" {
   class Observable {}
@@ -51,6 +70,8 @@ declare module "angular2/forms" {
   class Control {
     constructor(controls: any)
     updateValue(value: any)
+    _valueChanges: any
+    valueChanges: any
   }
   class ControlArray {
     removeAt(index: any)
@@ -61,9 +82,12 @@ declare module "angular2/forms" {
     controls: any;
     valueChanges: any;
   }
+  class Validators {
+    static required: any;
+  }
 }
 
-declare module "angular2/core" {
+declare module "angular2/render" {
   class EmulatedScopedShadowDomStrategy {
     constructor(styleInliner: any, styleUrlResolver: any, styleHost: any)
   }
@@ -210,132 +234,6 @@ declare module "angular2/src/dom/browser_adapter" {
         getLocation(): Location;
         getBaseHref(): any;
     }
-}
-
-declare module "angular2/angular2" {
-  function bootstrap(appComponentType: any, componentInjectableBindings?: Array<any>, errorReporter?: Function): Promise<ComponentRef>;
-
-  class ElementRef {
-    domElement: any;
-  }
-
-  function NgSwitch(): void;
-  function NgSwitchWhen(): void;
-  function NgSwitchDefault(): void;
-  function NgNonBindable(): void;
-  function NgIf(): void;
-  function NgFor(): void;
-
-  var formDirectives: any;
-  var coreDirectives: any;
-
-  var Observable: any;
-  var EventEmitter: any;
-  var DomRenderer: any;
-  var DOCUMENT_TOKEN: any;
-  var ASTWithSource: any;
-  var AST: any;
-  var AstTransformer: any;
-  var AccessMember: any;
-  var LiteralArray: any;
-  var ImplicitReceiver: any;
-  var Lexer: any;
-  var Parser: any;
-  var Locals: any;
-  var ExpressionChangedAfterItHasBeenChecked: any;
-  var ChangeDetectionError: any;
-  var ProtoChangeDetector: any;
-  var ChangeDispatcher: any;
-  var ChangeDetector: any;
-  var ChangeDetection: any;
-  var CHECK_ONCE: any;
-  var CHECK_ALWAYS: any;
-  var DETACHED: any;
-  var CHECKED: any;
-  var ON_PUSH: any;
-  var DEFAULT: any;
-  var DynamicProtoChangeDetector: any;
-  var JitProtoChangeDetector: any;
-  var BindingRecord: any;
-  var DirectiveIndex: any;
-  var DirectiveRecord: any;
-  var DynamicChangeDetector: any;
-  var ChangeDetectorRef: any;
-  var PipeRegistry: any;
-  var uninitialized: any;
-  var WrappedValue: any;
-  var Pipe: any;
-  var NullPipe: any;
-  var NullPipeFactory: any;
-  var defaultPipes: any;
-  var DynamicChangeDetection: any;
-  var JitChangeDetection: any;
-  var defaultPipeRegistry: any;
-  var ___esModule: any;
-  var ViewRef: any;
-  var ProtoViewRef: any;
-  class ViewContainerRef {}
-  var AncestorAnnotation: any;
-  var ParentAnnotation: any;
-  interface OnChange {}
-  var ViewAnnotation: any;
-  interface ApplicationRef {}
-  var appComponentRefToken: any;
-  var appComponentAnnotatedTypeToken: any;
-  var QueryAnnotation: any;
-  var AttributeAnnotation: any;
-  interface QueryList {}
-  interface CompilerCache {}
-  interface Compiler {}
-  interface TemplateLoader {}
-  interface ShadowDomStrategy {}
-  interface NativeShadowDomStrategy {}
-  interface EmulatedScopedShadowDomStrategy {}
-  interface EmulatedUnscopedShadowDomStrategy {}
-  interface ComponentRef {
-     instance: any;
-     dispose(): void;
-  }
-  class DynamicComponentLoader {
-     loadIntoNewLocation(type: any, b: any, c: any, d?: any): Promise<ComponentRef>;
-     loadNextToExistingLocation(a: any, b: any, c: any): Promise<ComponentRef>;
-  }
-  var ComponentAnnotation: any;
-  var DirectiveAnnotation: any;
-  var onDestroy: any;
-  var onChange: any;
-  var onAllChangesDone: any;
-  var Directive: any;
-  var Ancestor: any;
-  var Parent: any;
-  var Attribute: any;
-  var Query: any;
-  var coreDirectives: any;
-  interface CSSClass {}
-  var VALID: any;
-  var INVALID: any;
-  interface Control {}
-  interface ControlGroup {}
-  interface ControlArray {}
-  interface DefaultValueAccessor {}
-  interface CheckboxControlValueAccessor {}
-  interface ControlDirective {}
-  interface ControlGroupDirective {}
-  var formDirectives: any;
-  interface Validators {}
-  interface RequiredValidatorDirective {}
-  interface FormBuilder {}
-  interface EventBinding {}
-  interface ElementBinder {}
-  interface DirectiveBinder {}
-  interface ProtoViewDto {}
-  interface DirectiveMetadata {}
-  interface RenderProtoViewRef {}
-  interface RenderViewRef {}
-  interface ViewDefinition {}
-  interface RenderCompiler {}
-  interface Renderer {}
-  interface EventDispatcher {}
 }
 
 declare module "angular2/di" {

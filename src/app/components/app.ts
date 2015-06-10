@@ -1,10 +1,10 @@
 /// <reference path="../../../typings/tsd.d.ts" />
-/// <reference path="../../custom_typings/ng2.d.ts" />
 
 // Angular 2
 import {Component, View, coreDirectives} from 'angular2/angular2';
 import {RouteConfig, RouterOutlet, RouterLink, Router} from 'angular2/router';
 import {BrowserLocation} from 'angular2/src/router/browser_location';
+
 // We use a folder if we want separate files
 import {Home} from './home/home';
 // Otherwise we only use one file for a component

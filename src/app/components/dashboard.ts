@@ -1,10 +1,10 @@
 /// <reference path="../../../typings/tsd.d.ts" />
-/// <reference path="../../custom_typings/ng2.d.ts" />
 
 // Angular 2
 import {Component, View, Directive, ElementRef} from 'angular2/angular2';
 
-// Simple example directive that should be in another file
+// Simple example directive that should be in `/directives` folder
+// Todo: refactor
 @Directive({
   selector: '[x-large]' // using [ ] means selecting attributes
 })
