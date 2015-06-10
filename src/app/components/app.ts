@@ -30,7 +30,7 @@ import {appDirectives} from '../directives/directives';
     main    { padding: 0.5em; }
   </style>
 
-  <h1 class="title">Hello {{ name }}</h1>
+  <h1 class="title">Hello {{ name }}, versio {{version}}</h1>
 
   <ul class="nav">
     <li><a router-link="home">Home</a></li>
@@ -53,9 +53,10 @@ import {appDirectives} from '../directives/directives';
 ])
 export class App {
   name: string;
+  version: number;
   constructor(router: Router, browserLocation: BrowserLocation) {
-    this.name = 'Angular 2';
-
+    this.name = 'Angular';
+    this.version = 4;
     // we need to manually go to the correct uri until the router is fixed
     let uri = browserLocation.path();
     router.navigate(uri);
